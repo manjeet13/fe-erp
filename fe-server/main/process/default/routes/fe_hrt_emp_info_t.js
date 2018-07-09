@@ -1,6 +1,6 @@
 //var path = require('path');
 
-const fe_hrt_emp_info_t = require(process.env.L0+'/legislations/fe/clients/main/process/default/controllers/fe_hrt_emp_info_t.js');
+const fe_hrt_emp_info_t = require(process.env.L0+'/legislations/fe/clients/fe/main/process/default/controllers/emp.js');
 
 var express = require('express');
 var router = express.Router();

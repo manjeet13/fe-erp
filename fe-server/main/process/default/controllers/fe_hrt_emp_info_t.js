@@ -1,4 +1,4 @@
-var models = require(process.env.L0+'/legislations/fe/clients/main/process/default/models');
+var models = require(process.env.L0+'/legislations/fe/clients/fe/main/process/default/models');
 
 module.exports = class FeEmpDetails{
 

@@ -18,10 +18,13 @@ var book = require('./routes/book');
 var login = require ('./fe-server/main/process/default/routes/login.js');
 var login_ctrl = require('./fe-server/main/process/default/controllers/login.js');
 var aureole_lookup = require('./fe-server/main/process/default/routes/aureole_lookup.js');
-var emp_details = require('./fe-server/legislations/fe/clients/main/process/default/routes/fe_hrt_emp_info_t.js')
+var emp_details = require('./fe-server/legislations/fe/clients/fe/main/process/default/routes/fe_hrt_emp_info_t.js')
 var aureole_lookup_ctrl = require('./fe-server/main/process/default/controllers/login.js');
 var fe = express();
 var app = express(); 
+//import middleware
+var middleware = require('./fe.middleware.dispatcher.js');
+
 
 app.use(login_ctrl);
 app.use(aureole_lookup_ctrl); 
@@ -60,13 +63,14 @@ app.use((req, res, next)=>{
   next();   
 });
 
-app.use('/api', book);
+
+//app.use('/api', book);
 app.use('/api/default/login', login);
 app.use(passport.session());
 
-app.use('/api/default/login',login);
-app.use('/api/default/aureolelookup',aureole_lookup);
-app.use('/api/default/empdetails',emp_details);
+// app.use('/api/default/login',login);
+// app.use('/api/default/aureolelookup',aureole_lookup);
+// app.use('/api/default/empdetails',emp_details);
 //app.get('/api/aureolelookup/*',aureole_lookup);
 //main get Route 
 /* app.use('/client/:id', function(req,res,next){
@@ -77,6 +81,9 @@ app.use('/api/default/empdetails',emp_details);
   dynamicStatic.setPath(path.resolve(__dirname, 'dist/'+clientIdentifier)) 
   res.sendFile("index.html", {root: "./dist/" + clientIdentifier })
 }); */
+
+//dynamic route middleware
+app.use('/:client/api/',middleware);
 
 app.use(express.static(path.join(__dirname, "dist")));
 

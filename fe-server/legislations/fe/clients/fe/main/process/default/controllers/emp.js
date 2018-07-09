@@ -9,9 +9,9 @@ module.exports = class EmpDetails extends LgEmpDetails{
         res.send('L3 FUNCTION WORKING');
     }
 
-    // empDetails(req,res,done){
-    //     res.send('L3 EMPDETAILS FUNCTION WORKING');
-    // }
+     empDetails(req,res,done){
+         return 'L3 EMPDETAILS FUNCTION WORKING';
+     }
     
  }
 

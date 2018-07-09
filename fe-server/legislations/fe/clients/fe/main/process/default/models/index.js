@@ -2,7 +2,7 @@
 var path      = require('path');
 var Sequelize = require('sequelize');
 var db        = {};
-var CONFIG = require(path.join(process.env.L1Root,'../../config/config.js'));
+var CONFIG = require(path.join(process.env.L1Root,'../../../config/config.js'));
 //const CLASSMETHODS = 'classMethods';
 //const ASSOCIATE = 'associate';
 
